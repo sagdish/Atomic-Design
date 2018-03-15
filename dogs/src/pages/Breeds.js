@@ -39,12 +39,17 @@ class Breeds extends Component {
       this.setState(
         { breeds: this.filterBreeds(Object.keys(response.data.message)) });
       console.log(this.state.breeds);
+    });
+    
+    axios.get('`https://dog.ceo/api/breed/${this.state.breeds[0]}/images/random')
+    .then(response => {
+      this.setState({ imgLabel: response });
     })
     
     
-    .catch(error => {
-      console.log(`error getting data from server: ${error}`);
-    });
+    // .catch(error => {
+    //   console.log(`error getting data from server: ${error}`);
+    // });
     
     
     
